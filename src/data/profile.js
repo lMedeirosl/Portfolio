@@ -4,15 +4,15 @@
 // ============================================================
 
 export const profile = {
-  name: 'Seu Nome',
+  name: 'V.Medeiros.E',
   headline:
     'Web Developer focado em aplicações modernas, segurança e sistemas interativos',
   subtext:
     'Desenvolvo aplicações web, estudo cybersecurity e crio jogos como laboratório de lógica e engenharia de software',
   availability: 'Aberto a oportunidades',
   email: 'voce@email.com',
-  github: 'https://github.com/seu-usuario',
-  linkedin: 'https://www.linkedin.com/in/seu-usuario',
+  github: 'https://github.com/lmedeirosl',
+  linkedin: 'https://www.linkedin.com/in/lmedeirosl',
 }
 
 export const about = [
