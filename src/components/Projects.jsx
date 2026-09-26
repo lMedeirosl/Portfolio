@@ -174,11 +174,11 @@ export default function Projects() {
           })}
         </div>
 
-        {/* Controles da Prateleira Circular 360° */}
+        {/* Controles do Tambor de Projetos */}
         <div className="hidden items-center gap-3 sm:flex">
           <span className="inline-flex items-center gap-1.5 font-mono text-xs text-muted">
             <RotateCw size={13} className={cat.text} aria-hidden="true" />
-            <span>Coluna {currentCol} de {totalCols} • 360° Circular</span>
+            <span>Coluna {currentCol} de {totalCols}</span>
           </span>
 
           <div className="flex items-center gap-1.5">
@@ -186,8 +186,8 @@ export default function Projects() {
               type="button"
               onClick={() => scrollByCols(-1)}
               className="rounded border border-line bg-panel p-2 text-ink transition-all hover:border-white/50 hover:bg-raised active:scale-95"
-              aria-label="Girar no sentido anti-horário"
-              title="Girar para os projetos anteriores (cíclico)"
+              aria-label="Projetos anteriores"
+              title="Projetos anteriores"
             >
               <ChevronLeft size={18} />
             </button>
@@ -195,8 +195,8 @@ export default function Projects() {
               type="button"
               onClick={() => scrollByCols(1)}
               className="rounded border border-line bg-panel p-2 text-ink transition-all hover:border-white/50 hover:bg-raised active:scale-95"
-              aria-label="Girar no sentido horário"
-              title="Girar para os próximos projetos (cíclico)"
+              aria-label="Próximos projetos"
+              title="Próximos projetos"
             >
               <ChevronRight size={18} />
             </button>
@@ -211,11 +211,8 @@ export default function Projects() {
         aria-labelledby={`tab-${active}`}
         className="mt-6 animate-rise"
       >
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4">
           <p className="max-w-2xl text-sm leading-relaxed text-muted">{cat.blurb}</p>
-          <span className="hidden font-mono text-xs text-muted lg:inline-block">
-            Gire para qualquer lado infinitamente como uma prateleira circular ↔
-          </span>
         </div>
 
         {/* CONTAINER DA PRATELEIRA CIRCULAR (2 LINHAS) */}
@@ -251,7 +248,7 @@ export default function Projects() {
         {/* Controles mobile */}
         <div className="mt-3 flex items-center justify-between sm:hidden">
           <span className="font-mono text-xs text-muted">
-            Coluna {currentCol} de {totalCols} (Giro circular 360°)
+            Coluna {currentCol} de {totalCols}
           </span>
           <div className="flex gap-1.5">
             <button

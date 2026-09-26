@@ -1,5 +1,5 @@
 import { useRef, useCallback, useEffect } from 'react'
-import { ChevronLeft, ChevronRight, Layers, RotateCw } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Section from './Section'
 import { categories } from '../data/categories'
 import { labs } from '../data/labs'
@@ -95,18 +95,10 @@ export default function Labs() {
     <Section
       id="labs"
       title="Labs e experimentos"
-      description="Testes de segurança, mini projetos web e protótipos de jogos. Organizados em tetris modular em prateleira circular contínua."
+      description="Testes de segurança, mini projetos web e protótipos de jogos."
     >
-      <div className="mb-4 flex items-center justify-between">
-        <span className="inline-flex items-center gap-2 font-mono text-xs text-muted">
-          <Layers size={14} className="text-web" aria-hidden="true" />
-          <span className="flex items-center gap-1.5">
-            Composição Tetris • Prateleira Circular 360°
-            <RotateCw size={12} className="text-web" />
-          </span>
-        </span>
-
-        {/* Controles de rolagem cíclica infinita */}
+      <div className="mb-4 flex justify-end">
+        {/* Controles de rolagem */}
         <div className="flex items-center gap-1.5">
           <button
             type="button"

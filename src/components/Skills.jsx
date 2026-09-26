@@ -1,5 +1,5 @@
 import { useRef, useCallback, useEffect } from 'react'
-import { ChevronLeft, ChevronRight, Cpu, RotateCw } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Section from './Section'
 import SkillIcon from './SkillIcon'
 import { categories } from '../data/categories'
@@ -90,18 +90,10 @@ export default function Skills() {
     <Section
       id="skills"
       title="Skills"
-      description="Tecnologias, linguagens e ferramentas organizadas em composição modular tetris sobre uma prateleira circular contínua."
+      description="Tecnologias e ferramentas que uso no dia a dia, agrupadas pela área em que aparecem."
     >
-      <div className="mb-4 flex items-center justify-between">
-        <span className="inline-flex items-center gap-2 font-mono text-xs text-muted">
-          <Cpu size={14} className="text-web" aria-hidden="true" />
-          <span className="flex items-center gap-1.5">
-            Composição Tetris • Prateleira Circular 360°
-            <RotateCw size={12} className="text-web" />
-          </span>
-        </span>
-
-        {/* Controles de rolagem cíclica infinita */}
+      <div className="mb-4 flex justify-end">
+        {/* Controles de rolagem */}
         <div className="flex items-center gap-1.5">
           <button
             type="button"

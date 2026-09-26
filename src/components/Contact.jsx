@@ -25,7 +25,7 @@ export default function Contact() {
     <Section
       id="contato"
       title="Contato"
-      description="Aberto a vagas, projetos freelance e conversas sobre web e segurança."
+      description="Aberto a vagas, projetos freelance e conversas sobre web, segurança, desenvolvimento de jogos e design com Unity e Blender."
     >
       <div className="grid gap-4 md:grid-cols-2">
         <div className="rounded-lg border border-line bg-panel p-5 md:col-span-2 sm:p-6">
