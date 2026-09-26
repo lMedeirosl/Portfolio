@@ -5,6 +5,14 @@ export default function Hero() {
   return (
     <section id="inicio" className="relative isolate overflow-hidden pb-24 pt-32 sm:pb-32 sm:pt-44">
       <div aria-hidden="true" className="hero-grid absolute inset-0 -z-10" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_50%_at_50%_25%,rgba(56,189,248,0.08),transparent_75%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-canvas"
+      />
 
       <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
         <div className="animate-rise">
@@ -23,21 +31,6 @@ export default function Hero() {
           <p className="mx-auto mt-4 max-w-xl text-pretty leading-relaxed text-muted">
             {profile.subtext}
           </p>
-
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="#projetos"
-              className="w-full rounded-md bg-ink px-6 py-3 text-sm font-semibold text-canvas transition-colors hover:bg-web sm:w-auto"
-            >
-              Ver projetos
-            </a>
-            <a
-              href="#contato"
-              className="w-full rounded-md border border-line px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-muted hover:bg-panel sm:w-auto"
-            >
-              Contato
-            </a>
-          </div>
         </div>
 
         <div className="mx-auto mt-16 max-w-2xl animate-rise [animation-delay:250ms]">

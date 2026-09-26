@@ -1,5 +1,5 @@
-import { useRef, useState, useCallback, useEffect } from 'react'
-import { ChevronLeft, ChevronRight, Layers } from 'lucide-react'
+import { useRef, useCallback, useEffect } from 'react'
+import { ChevronLeft, ChevronRight, Layers, RotateCw } from 'lucide-react'
 import Section from './Section'
 import { categories } from '../data/categories'
 import { labs } from '../data/labs'
@@ -12,28 +12,60 @@ const statusStyle = {
 
 export default function Labs() {
   const scrollRef = useRef(null)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(true)
-
   const isDraggingRef = useRef(false)
   const startXRef = useRef(0)
   const scrollLeftRef = useRef(0)
 
+  // 3 Repetições para criar a prateleira circular infinita mantendo o encaixe Tetris
+  const circularLabs = [
+    ...labs.map((lab, i) => ({ ...lab, loopKey: `set1-${i}-${lab.slug}` })),
+    ...labs.map((lab, i) => ({ ...lab, loopKey: `set2-${i}-${lab.slug}` })),
+    ...labs.map((lab, i) => ({ ...lab, loopKey: `set3-${i}-${lab.slug}` })),
+  ]
+
+  // Reajuste invisível das bordas para loop infinito contínuo
   const updateScrollState = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
-    setCanScrollLeft(el.scrollLeft > 10)
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 10)
+
+    const singleSetWidth = el.scrollWidth / 3
+    if (singleSetWidth <= 0) return
+
+    if (el.scrollLeft < singleSetWidth * 0.25) {
+      el.scrollLeft += singleSetWidth
+    } else if (el.scrollLeft > singleSetWidth * 1.75) {
+      el.scrollLeft -= singleSetWidth
+    }
   }, [])
 
   useEffect(() => {
-    updateScrollState()
+    const el = scrollRef.current
+    if (!el) return
+
+    const centerScroll = () => {
+      const singleSetWidth = el.scrollWidth / 3
+      if (singleSetWidth > 0) {
+        el.scrollLeft = singleSetWidth
+        updateScrollState()
+      }
+    }
+
+    const timer = setTimeout(centerScroll, 40)
+    return () => clearTimeout(timer)
   }, [updateScrollState])
 
   function scroll(direction = 1) {
     const el = scrollRef.current
     if (!el) return
-    el.scrollBy({ left: 360 * direction, behavior: 'smooth' })
+
+    const singleSetWidth = el.scrollWidth / 3
+    if (direction < 0 && el.scrollLeft < singleSetWidth * 0.45) {
+      el.scrollLeft += singleSetWidth
+    } else if (direction > 0 && el.scrollLeft > singleSetWidth * 1.55) {
+      el.scrollLeft -= singleSetWidth
+    }
+
+    el.scrollBy({ left: 380 * direction, behavior: 'smooth' })
   }
 
   function handleMouseDown(e) {
@@ -63,63 +95,52 @@ export default function Labs() {
     <Section
       id="labs"
       title="Labs e experimentos"
-      description="Testes de segurança, mini projetos web e protótipos de jogos. Organizados em tetris modular expansível para os lados."
+      description="Testes de segurança, mini projetos web e protótipos de jogos. Organizados em tetris modular em prateleira circular contínua."
     >
       <div className="mb-4 flex items-center justify-between">
         <span className="inline-flex items-center gap-2 font-mono text-xs text-muted">
           <Layers size={14} className="text-web" aria-hidden="true" />
-          <span>Composição Tetris • Expansão Horizontal</span>
+          <span className="flex items-center gap-1.5">
+            Composição Tetris • Prateleira Circular 360°
+            <RotateCw size={12} className="text-web" />
+          </span>
         </span>
 
-        {/* Controles de rolagem do Tetris */}
+        {/* Controles de rolagem cíclica infinita */}
         <div className="flex items-center gap-1.5">
           <button
             type="button"
             onClick={() => scroll(-1)}
-            disabled={!canScrollLeft}
-            className={`rounded border border-line bg-panel p-1.5 transition-all ${
-              canScrollLeft
-                ? 'text-ink hover:border-white/40 hover:bg-raised'
-                : 'cursor-not-allowed opacity-30 text-muted'
-            }`}
-            aria-label="Rolar labs para esquerda"
-            title="Rolar para a esquerda"
+            className="rounded border border-line bg-panel p-1.5 text-ink transition-all hover:border-white/50 hover:bg-raised active:scale-95"
+            aria-label="Girar labs para a esquerda (cíclico)"
+            title="Girar para a esquerda (infinito)"
           >
             <ChevronLeft size={18} />
           </button>
           <button
             type="button"
             onClick={() => scroll(1)}
-            disabled={!canScrollRight}
-            className={`rounded border border-line bg-panel p-1.5 transition-all ${
-              canScrollRight
-                ? 'text-ink hover:border-white/40 hover:bg-raised'
-                : 'cursor-not-allowed opacity-30 text-muted'
-            }`}
-            aria-label="Rolar labs para direita"
-            title="Rolar para a direita"
+            className="rounded border border-line bg-panel p-1.5 text-ink transition-all hover:border-white/50 hover:bg-raised active:scale-95"
+            aria-label="Girar labs para a direita (cíclico)"
+            title="Girar para a direita (infinito)"
           >
             <ChevronRight size={18} />
           </button>
         </div>
       </div>
 
-      {/* Container com Sombras de Borda e Grid Tetris Horizontal */}
+      {/* Container com Sombras de Borda e Grid Tetris Circular */}
       <div className="relative -mx-5 px-5 sm:mx-0 sm:px-0">
         <div
-          className={`pointer-events-none absolute -left-1 top-0 bottom-0 z-20 w-10 sm:w-16 bg-gradient-to-r from-canvas via-canvas/90 to-transparent transition-opacity duration-300 ${
-            canScrollLeft ? 'opacity-100' : 'opacity-0'
-          }`}
+          className="pointer-events-none absolute -left-1 top-0 bottom-0 z-20 w-10 sm:w-16 bg-gradient-to-r from-canvas via-canvas/90 to-transparent"
           aria-hidden="true"
         />
         <div
-          className={`pointer-events-none absolute -right-1 top-0 bottom-0 z-20 w-10 sm:w-16 bg-gradient-to-l from-canvas via-canvas/90 to-transparent transition-opacity duration-300 ${
-            canScrollRight ? 'opacity-100' : 'opacity-0'
-          }`}
+          className="pointer-events-none absolute -right-1 top-0 bottom-0 z-20 w-10 sm:w-16 bg-gradient-to-l from-canvas via-canvas/90 to-transparent"
           aria-hidden="true"
         />
 
-        {/* Grid Tetris de 3 linhas com preenchimento denso e expansão lateral */}
+        {/* Grid Tetris de 3 linhas com preenchimento denso e expansão lateral circular */}
         <div
           ref={scrollRef}
           onScroll={updateScrollState}
@@ -129,14 +150,14 @@ export default function Labs() {
           onMouseLeave={handleMouseUp}
           className="grid grid-rows-3 grid-flow-col-dense auto-cols-[280px] sm:auto-cols-[330px] lg:auto-cols-[360px] gap-4 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {labs.map((lab) => {
+          {circularLabs.map((lab) => {
             const c = categories[lab.area]
             const Icon = lab.icon
             const isWide = lab.span?.includes('col-span-2')
 
             return (
               <article
-                key={lab.slug}
+                key={lab.loopKey}
                 className={`group relative flex min-h-[11.5rem] flex-col justify-between overflow-hidden rounded-lg border border-line bg-panel p-5 transition-colors duration-200 snap-start ${c.hoverBorder} ${
                   isWide ? 'col-span-2' : 'col-span-1'
                 }`}
@@ -153,7 +174,7 @@ export default function Labs() {
                     <span className="sr-only">{c.label}:</span>
                     labs/{lab.slug}
                   </p>
-                  <h3 className="mt-3 font-display text-lg font-bold tracking-tight">{lab.title}</h3>
+                  <h3 className="mt-3 font-display text-lg font-bold tracking-tight text-ink">{lab.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted line-clamp-2">{lab.note}</p>
                 </div>
 

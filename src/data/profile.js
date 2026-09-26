@@ -10,7 +10,7 @@ export const profile = {
   subtext:
     'Desenvolvo aplicações web, estudo cybersecurity e crio jogos como laboratório de lógica e engenharia de software',
   availability: 'Aberto a oportunidades',
-  email: 'voce@email.com',
+  email: 'contatolmedeirosl@gmail.com',
   github: 'https://github.com/lmedeirosl',
   linkedin: 'https://www.linkedin.com/in/lmedeirosl',
 }

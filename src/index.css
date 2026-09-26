@@ -54,13 +54,13 @@
   }
 }
 
-/* Grade de fundo do hero estilo wireframe de terminal */
+/* Grade de fundo do hero estilo wireframe de terminal com alta profundidade */
 .hero-grid {
   background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 75% 65% at 50% 25%, #000 25%, transparent 80%);
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 25%, #000 15%, transparent 85%);
 }
 
 /* Entrada suave ao rolar a página */

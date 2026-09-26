@@ -1,44 +1,46 @@
 import { useEffect, useState } from 'react'
 
-// Sequência mostrada no hero. Cada área usa a mesma cor do resto do site.
+// Sequência mostrada no terminal do hero.
 const script = [
-  { type: 'cmd', text: 'ls areas/' },
+  { type: 'cmd', text: 'ls -p areas/' },
   {
     type: 'out',
     parts: [
-      { t: 'web/', c: 'text-web' },
-      { t: '   ' },
       { t: 'cybersecurity/', c: 'text-sec' },
-      { t: '   ' },
+      { t: '  ' },
       { t: 'gamedev/', c: 'text-game' },
+      { t: '  ' },
+      { t: 'web/', c: 'text-web' },
     ],
   },
+  { type: 'empty' },
   { type: 'cmd', text: 'cat status.txt' },
   {
     type: 'out',
     parts: [
-      { t: 'web        ', c: 'text-web' },
-      { t: 'aplicações em React, foco principal' },
+      { t: 'web           ', c: 'text-web' },
+      { t: 'Aplicações em React, foco principal', c: 'text-ink/90' },
     ],
   },
   {
     type: 'out',
     parts: [
-      { t: 'security   ', c: 'text-sec' },
-      { t: 'OWASP Top 10, Linux, CTFs' },
+      { t: 'cybersecurity ', c: 'text-sec' },
+      { t: 'OWASP Top 10, Linux, CTFs', c: 'text-ink/90' },
     ],
   },
   {
     type: 'out',
     parts: [
-      { t: 'gamedev    ', c: 'text-game' },
-      { t: 'Unity, Blender e sistemas lógicos' },
+      { t: 'gamedev       ', c: 'text-game' },
+      { t: 'Unity, Blender e sistemas lógicos', c: 'text-ink/90' },
     ],
   },
+  { type: 'empty' },
 ]
 
 const srSummary =
-  'Terminal com três áreas: web (foco principal, aplicações em React), security (OWASP Top 10, Linux, CTFs) e gamedev (Unity e Godot).'
+  'Terminal: ~/portfolio $ ls -p areas/ exibe cybersecurity/, gamedev/ e web/. ~/portfolio $ cat status.txt exibe as descrições de web, cybersecurity e gamedev.'
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
@@ -80,6 +82,8 @@ export default function Terminal() {
             await sleep(48)
           }
           await sleep(380)
+        } else if (line.type === 'empty') {
+          await sleep(90)
         } else {
           await sleep(140)
         }
@@ -97,7 +101,7 @@ export default function Terminal() {
   }, [])
 
   return (
-    <div className="overflow-hidden rounded-lg border border-line bg-panel text-left shadow-2xl shadow-black/40">
+    <div className="overflow-hidden rounded-lg border border-line bg-panel text-left shadow-2xl shadow-black/60">
       <div className="flex items-center gap-2 border-b border-line px-4 py-2.5">
         <span className="h-2.5 w-2.5 rounded-full bg-web" />
         <span className="h-2.5 w-2.5 rounded-full bg-sec" />
@@ -108,16 +112,22 @@ export default function Terminal() {
       <p className="sr-only">{srSummary}</p>
       <div
         aria-hidden="true"
-        className="min-h-[11.5rem] overflow-x-auto whitespace-pre px-4 py-4 font-mono text-[13px] leading-7 sm:text-sm"
+        className="min-h-[16.5rem] overflow-x-auto whitespace-pre px-4 py-4 font-mono text-[13px] leading-7 sm:text-sm"
       >
         {script.map((line, i) => {
           if (i < step) {
-            return line.type === 'cmd' ? (
-              <div key={i}>
-                <Prompt />
-                {line.text}
-              </div>
-            ) : (
+            if (line.type === 'cmd') {
+              return (
+                <div key={i}>
+                  <Prompt />
+                  {line.text}
+                </div>
+              )
+            }
+            if (line.type === 'empty') {
+              return <div key={i} className="h-3" />
+            }
+            return (
               <div key={i}>
                 {line.parts.map((p, j) => (
                   <span key={j} className={p.c ?? 'text-muted'}>
