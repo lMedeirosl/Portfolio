@@ -1,9 +1,8 @@
 import { profile } from '../data/profile'
-import Terminal from './Terminal'
 
 export default function Hero() {
   return (
-    <section id="inicio" className="relative isolate overflow-hidden pb-24 pt-32 sm:pb-32 sm:pt-44">
+    <section id="inicio" className="relative isolate overflow-hidden pb-20 pt-32 sm:pb-28 sm:pt-44">
       <div aria-hidden="true" className="hero-grid absolute inset-0 -z-10" />
       <div
         aria-hidden="true"
@@ -31,10 +30,6 @@ export default function Hero() {
           <p className="mx-auto mt-4 max-w-xl text-pretty leading-relaxed text-muted">
             {profile.subtext}
           </p>
-        </div>
-
-        <div className="mx-auto mt-16 max-w-2xl animate-rise [animation-delay:250ms]">
-          <Terminal />
         </div>
       </div>
     </section>

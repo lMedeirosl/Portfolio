@@ -3,10 +3,10 @@ import { Menu, X } from 'lucide-react'
 import { profile } from '../data/profile'
 
 const links = [
-  { id: 'projetos', label: 'Projetos' },
-  { id: 'labs', label: 'Labs' },
   { id: 'sobre', label: 'Sobre' },
   { id: 'skills', label: 'Skills' },
+  { id: 'projetos', label: 'Projetos' },
+  { id: 'labs', label: 'Labs' },
   { id: 'contato', label: 'Contato' },
 ]
 

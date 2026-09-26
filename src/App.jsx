@@ -1,8 +1,8 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import About from './components/About'
 import Projects from './components/Projects'
 import Labs from './components/Labs'
-import About from './components/About'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -19,10 +19,10 @@ export default function App() {
       <Navbar />
       <main id="conteudo">
         <Hero />
-        <Projects />
-        <Labs />
         <About />
         <Skills />
+        <Projects />
+        <Labs />
         <Contact />
       </main>
       <Footer />

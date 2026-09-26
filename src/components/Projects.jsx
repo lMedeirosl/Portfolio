@@ -220,13 +220,13 @@ export default function Projects() {
 
         {/* CONTAINER DA PRATELEIRA CIRCULAR (2 LINHAS) */}
         <div className="relative -mx-5 px-5 sm:mx-0 sm:px-0">
-          {/* Sombras de profundidade e rotação contínua */}
+          {/* Sombras de profundidade finas rente à borda extrema */}
           <div
-            className="pointer-events-none absolute -left-1 top-0 bottom-0 z-20 w-10 sm:w-16 bg-gradient-to-r from-canvas via-canvas/90 to-transparent"
+            className="pointer-events-none absolute left-0 top-0 bottom-0 z-20 w-4 sm:w-6 bg-gradient-to-r from-canvas to-transparent"
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute -right-1 top-0 bottom-0 z-20 w-10 sm:w-16 bg-gradient-to-l from-canvas via-canvas/90 to-transparent"
+            className="pointer-events-none absolute right-0 top-0 bottom-0 z-20 w-4 sm:w-6 bg-gradient-to-l from-canvas to-transparent"
             aria-hidden="true"
           />
 
