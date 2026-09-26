@@ -3,6 +3,7 @@ import {
   SiGithub, SiHtml5, SiCss, SiReact, SiTailwindcss, SiVite, SiNodedotjs, SiNextdotjs,
   SiLinux, SiGnubash, SiWireshark, SiKalilinux, SiBurpsuite, SiOwasp, SiDocker,
   SiFigma, SiDavinciresolve, SiVercel, SiMetasploit,
+  SiRust, SiGo, SiCplusplus, SiC, SiR, SiSolidity,
 } from 'react-icons/si'
 import { TbBrandCSharp } from 'react-icons/tb'
 import { VscVscode } from 'react-icons/vsc'
@@ -17,6 +18,12 @@ const icons = {
   typescript: SiTypescript,
   python: SiPython,
   csharp: TbBrandCSharp,
+  rust: SiRust,
+  go: SiGo,
+  cpp: SiCplusplus,
+  c: SiC,
+  r: SiR,
+  solidity: SiSolidity,
   godot: SiGodotengine,
   unity: SiUnity,
   blender: SiBlender,

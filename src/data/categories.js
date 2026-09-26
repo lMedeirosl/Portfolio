@@ -4,32 +4,32 @@ export const categories = {
   web: {
     label: 'Web Development',
     blurb:
-      'Aplicações React com foco em componentização, desempenho e acessibilidade.',
+      'Aplicações modernas em React com foco em arquitetura, componentização, desempenho e segurança.',
     text: 'text-web',
     bg: 'bg-web/10',
     bgSolid: 'bg-web',
     border: 'border-web/40',
-    hoverBorder: 'hover:border-web/60',
+    hoverBorder: 'hover:border-web/80',
   },
   sec: {
     label: 'Cybersecurity',
     blurb:
-      'Estudo e prática: write-ups de CTF, análise de vulnerabilidades e ferramentas próprias, sempre em ambientes autorizados.',
+      'Estudo e prática: write-ups de CTF, análise de tráfego, OWASP Top 10 e ferramentas próprias em ambientes autorizados.',
     text: 'text-sec',
     bg: 'bg-sec/10',
     bgSolid: 'bg-sec',
     border: 'border-sec/40',
-    hoverBorder: 'hover:border-sec/60',
+    hoverBorder: 'hover:border-sec/80',
   },
   game: {
     label: 'Game Development',
     blurb:
-      'Protótipos que servem para praticar lógica, física e arquitetura de sistemas.',
+      'Protótipos em Unity e modelagem 3D no Blender para exercitar lógica de sistemas, shaders e física interativa.',
     text: 'text-game',
     bg: 'bg-game/10',
     bgSolid: 'bg-game',
     border: 'border-game/40',
-    hoverBorder: 'hover:border-game/60',
+    hoverBorder: 'hover:border-game/80',
   },
   neutral: {
     label: 'Geral',
@@ -37,6 +37,6 @@ export const categories = {
     bg: 'bg-raised',
     bgSolid: 'bg-muted',
     border: 'border-line',
-    hoverBorder: 'hover:border-muted/60',
+    hoverBorder: 'hover:border-white/40',
   },
 }

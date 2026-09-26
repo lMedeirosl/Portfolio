@@ -36,6 +36,6 @@ export const journey = [
   {
     area: 'game',
     title: 'Game Development',
-    text: 'Protótipos em Unity e Godot para praticar lógica, física e sistemas.',
+    text: 'Protótipos em Unity e arte 3D no Blender para praticar lógica e arquitetura de sistemas.',
   },
 ]

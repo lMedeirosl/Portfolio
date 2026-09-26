@@ -1,21 +1,28 @@
 // ============================================================
-// EDITE AQUI: suas skills. Cada item tem { name, icon }.
+// SKILLS & TECNOLOGIAS
+// Cada item tem { name, icon }.
 // O campo icon usa as chaves de src/components/SkillIcon.jsx.
-// Se a chave não existir, um ícone genérico é exibido.
 // ============================================================
 
 export const skillGroups = [
   {
-    title: 'Linguagens',
+    title: 'Linguagens (Currículo FreeCodeCamp & Core)',
     area: 'neutral',
     items: [
       { name: 'JavaScript', icon: 'javascript' },
       { name: 'TypeScript', icon: 'typescript' },
       { name: 'Python', icon: 'python' },
-      { name: 'C#', icon: 'csharp' },
-      { name: 'GDScript', icon: 'godot' },
-      { name: 'Bash', icon: 'bash' },
+      { name: 'HTML5', icon: 'html' },
+      { name: 'CSS3', icon: 'css' },
       { name: 'SQL', icon: 'sql' },
+      { name: 'Bash', icon: 'bash' },
+      { name: 'C#', icon: 'csharp' },
+      { name: 'Rust', icon: 'rust' },
+      { name: 'Go', icon: 'go' },
+      { name: 'C++', icon: 'cpp' },
+      { name: 'C', icon: 'c' },
+      { name: 'R', icon: 'r' },
+      { name: 'Solidity', icon: 'solidity' },
     ],
   },
   {
@@ -49,13 +56,12 @@ export const skillGroups = [
     ],
   },
   {
-    title: 'Game Development',
+    title: 'Game Development & 3D',
     area: 'game',
     items: [
       { name: 'Unity', icon: 'unity' },
-      { name: 'Godot', icon: 'godot' },
+      { name: 'Blender', icon: 'blender' },
       { name: 'Lógica de jogos', icon: 'puzzle' },
-      { name: 'Física básica', icon: 'physics' },
       { name: 'Máquinas de estado', icon: 'workflow' },
       { name: 'Pathfinding', icon: 'route' },
     ],
@@ -70,7 +76,6 @@ export const skillGroups = [
       { name: 'VS Code', icon: 'vscode' },
       { name: 'Blender', icon: 'blender' },
       { name: 'Unity', icon: 'unity' },
-      { name: 'Godot', icon: 'godot' },
       { name: 'DaVinci Resolve', icon: 'davinci' },
       { name: 'Premiere Pro', icon: 'video' },
       { name: 'Figma', icon: 'figma' },
