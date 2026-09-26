@@ -44,7 +44,7 @@ export default function Projects() {
         role="tablist"
         aria-label="Áreas de projeto"
         onKeyDown={onKeyDown}
-        className="-mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:px-0"
+        className="-mx-5 flex gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0"
       >
         {tabs.map(({ key, icon: Icon, items }) => {
           const c = categories[key]

@@ -13,7 +13,7 @@ export default function Hero() {
             {profile.availability}
           </p>
 
-          <h1 className="mt-7 font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-7xl md:text-8xl">
+          <h1 className="mt-7 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-7xl md:text-8xl">
             {profile.name}
           </h1>
 

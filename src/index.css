@@ -33,9 +33,12 @@
   html {
     scroll-behavior: smooth;
     background: var(--color-canvas);
+    overflow-x: hidden;
   }
   body {
     @apply bg-canvas font-sans text-ink antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
   }
   ::selection {
     background: rgb(108 180 255 / 0.3);

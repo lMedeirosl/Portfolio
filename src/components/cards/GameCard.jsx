@@ -1,11 +1,13 @@
 import { FaGithub } from 'react-icons/fa6'
-import { Play } from 'lucide-react'
+import { Play, ExternalLink } from 'lucide-react'
 import CardShell from './CardShell'
 import ExtLink from '../ExtLink'
 
 export default function GameCard({ project }) {
   const linkClass =
     'inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-game'
+  const isBlender = project.engine?.toLowerCase().includes('blender')
+
   return (
     <CardShell area="game">
       <div className="flex items-center justify-between gap-3">
@@ -27,15 +29,20 @@ export default function GameCard({ project }) {
         ))}
       </ul>
 
-      <div className="mt-auto flex gap-5 pt-6">
+      <div className="mt-auto flex flex-wrap gap-5 pt-6">
         {project.github && (
           <ExtLink href={project.github} className={linkClass}>
-            <FaGithub size={16} aria-hidden="true" /> Código
+            <FaGithub size={16} aria-hidden="true" /> {project.githubLabel || 'Código'}
           </ExtLink>
         )}
         {project.demo && (
           <ExtLink href={project.demo} className={linkClass}>
-            <Play size={16} aria-hidden="true" /> Jogar
+            {isBlender ? (
+              <ExternalLink size={16} aria-hidden="true" />
+            ) : (
+              <Play size={16} aria-hidden="true" />
+            )}
+            {project.demoLabel || (isBlender ? 'Visualizar' : 'Jogar')}
           </ExtLink>
         )}
       </div>

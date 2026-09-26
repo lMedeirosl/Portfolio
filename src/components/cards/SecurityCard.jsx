@@ -1,12 +1,16 @@
-import { FileText, Wrench, Search } from 'lucide-react'
+import { FaGithub } from 'react-icons/fa6'
+import { FileText, Wrench, Search, ExternalLink } from 'lucide-react'
 import CardShell from './CardShell'
 import ExtLink from '../ExtLink'
 import Tag from '../Tag'
 
-const typeIcon = { 'Write-up': FileText, Análise: Search, Ferramenta: Wrench }
+const typeIcon = { 'Write-up': FileText, Análise: Search, Ferramenta: Wrench, Lab: FileText }
 
 export default function SecurityCard({ project }) {
   const Icon = typeIcon[project.type] ?? FileText
+  const linkClass =
+    'inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-sec'
+
   return (
     <CardShell area="sec">
       <div className="flex items-center justify-between gap-3">
@@ -35,13 +39,18 @@ export default function SecurityCard({ project }) {
 
       {project.note && <p className="mt-4 text-xs leading-relaxed text-muted">{project.note}</p>}
 
-      <div className="mt-auto pt-6">
-        <ExtLink
-          href={project.link}
-          className="text-sm font-medium text-muted transition-colors hover:text-sec"
-        >
-          {project.type === 'Ferramenta' ? 'Ver código' : 'Ler documentação'}
-        </ExtLink>
+      <div className="mt-auto flex flex-wrap gap-5 pt-6">
+        {project.github && (
+          <ExtLink href={project.github} className={linkClass}>
+            <FaGithub size={16} aria-hidden="true" /> Código
+          </ExtLink>
+        )}
+        {project.link && (
+          <ExtLink href={project.link} className={linkClass}>
+            <ExternalLink size={15} aria-hidden="true" />
+            {project.type === 'Ferramenta' ? 'Repositório' : 'Documentação'}
+          </ExtLink>
+        )}
       </div>
     </CardShell>
   )

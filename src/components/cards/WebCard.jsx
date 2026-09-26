@@ -18,7 +18,7 @@ export default function WebCard({ project }) {
         ))}
       </ul>
 
-      <div className="mt-auto flex gap-5 pt-6">
+      <div className="mt-auto flex flex-wrap gap-5 pt-6">
         {project.github && (
           <ExtLink href={project.github} className={linkClass}>
             <FaGithub size={16} aria-hidden="true" /> Código

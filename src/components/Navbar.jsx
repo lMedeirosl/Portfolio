@@ -11,10 +11,10 @@ const links = [
 ]
 
 const initials = profile.name
-  .split(' ')
+  .split(/[ ._]/)
   .filter(Boolean)
-  .slice(0, 2)
   .map((n) => n[0])
+  .slice(0, 2)
   .join('')
   .toUpperCase()
 
@@ -42,7 +42,7 @@ export default function Navbar() {
         className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8"
         aria-label="Principal"
       >
-        <a href="#" className="font-mono text-sm font-medium text-ink" aria-label="Início">
+        <a href="#inicio" className="font-mono text-sm font-medium text-ink" aria-label="Início">
           <span className="text-muted">{'<'}</span>
           {initials}
           <span className="text-muted">{' />'}</span>

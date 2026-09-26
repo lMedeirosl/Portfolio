@@ -32,7 +32,7 @@ const script = [
     type: 'out',
     parts: [
       { t: 'gamedev    ', c: 'text-game' },
-      { t: 'Unity e Godot, lógica e sistemas' },
+      { t: 'Unity, Blender e sistemas lógicos' },
     ],
   },
 ]
