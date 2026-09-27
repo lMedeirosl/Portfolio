@@ -3,6 +3,7 @@ import { ExternalLink } from 'lucide-react'
 import CardShell from './CardShell'
 import ExtLink from '../ExtLink'
 import Tag from '../Tag'
+import ExpandableText from '../ExpandableText'
 
 export default function WebCard({ project }) {
   const linkClass =
@@ -12,7 +13,7 @@ export default function WebCard({ project }) {
     <CardShell area="web">
       <div>
         <h3 className="font-display text-xl font-bold tracking-tight text-ink">{project.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted line-clamp-3">{project.description}</p>
+        <ExpandableText text={project.description} area="web" />
 
         <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Stack">
           {project.stack.map((s) => (

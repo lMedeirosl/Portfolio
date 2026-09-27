@@ -3,6 +3,7 @@ import { FileText, Wrench, Search, ExternalLink } from 'lucide-react'
 import CardShell from './CardShell'
 import ExtLink from '../ExtLink'
 import Tag from '../Tag'
+import ExpandableText from '../ExpandableText'
 
 const typeIcon = { 'Write-up': FileText, Análise: Search, Ferramenta: Wrench, Lab: FileText }
 
@@ -23,7 +24,7 @@ export default function SecurityCard({ project }) {
         </div>
 
         <h3 className="mt-4 font-display text-xl font-bold tracking-tight text-ink">{project.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted line-clamp-3">{project.description}</p>
+        <ExpandableText text={project.description} area="sec" />
 
         <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 border-t border-line pt-3 text-xs font-mono">
           <dt className="text-muted">Ambiente</dt>

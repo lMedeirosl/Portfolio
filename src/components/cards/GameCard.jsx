@@ -2,6 +2,7 @@ import { FaGithub } from 'react-icons/fa6'
 import { Play, ExternalLink } from 'lucide-react'
 import CardShell from './CardShell'
 import ExtLink from '../ExtLink'
+import ExpandableText from '../ExpandableText'
 
 export default function GameCard({ project }) {
   const linkClass =
@@ -19,7 +20,7 @@ export default function GameCard({ project }) {
         </div>
 
         <h3 className="mt-4 font-display text-xl font-bold tracking-tight text-ink">{project.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted line-clamp-3">{project.description}</p>
+        <ExpandableText text={project.description} area="game" />
 
         <ul className="mt-4 space-y-2 border-t border-line pt-3 text-xs font-mono" aria-label="Mecânicas implementadas">
           {project.mechanics.map((m) => (
