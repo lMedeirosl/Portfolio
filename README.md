@@ -1,4 +1,4 @@
-# ⚡ V.Medeiros.E — Software Engineering Portfolio
+#  V.Medeiros.E — Software Engineering Portfolio
 
 <div align="center">
 
@@ -16,7 +16,7 @@
 
 ---
 
-## 🎯 1. Visão Geral & Propósito
+##  1. Visão Geral & Propósito
 
 Este portfólio não foi concebido como uma simples página de apresentação curricular estática, mas como **um produto de software real**. O objetivo primordial é refletir a mentalidade de engenharia de software aplicada à web moderna: performance extrema, tipografia disciplinada, estética técnica inspirada em ambientes de linha de comando (*CLI*) e separação estrita de responsabilidades.
 
@@ -28,7 +28,7 @@ O propósito central da plataforma é unificar sob uma mesma identidade técnica
 
 ---
 
-## 🏛️ 2. Arquitetura de Software & Decisões de Projeto
+##  2. Arquitetura de Software & Decisões de Projeto
 
 A arquitetura do projeto prioriza manutenibilidade, extensibilidade e tempo de carregamento (*Time to Interactive* quase instantâneo):
 
@@ -56,7 +56,7 @@ A arquitetura do projeto prioriza manutenibilidade, extensibilidade e tempo de c
 
 ---
 
-## 🛠️ 3. Ferramentas & Tecnologias
+##  3. Ferramentas & Tecnologias
 
 | Camada | Tecnologia | Motivação & Benefício Técnico |
 | :--- | :--- | :--- |
@@ -69,32 +69,32 @@ A arquitetura do projeto prioriza manutenibilidade, extensibilidade e tempo de c
 
 ---
 
-## ✨ 4. Engenharia de Recursos & Destaques de Implementação
+##  4. Engenharia de Recursos & Destaques de Implementação
 
-### 💻 Terminal Shell Interativo (Hero CLI)
+###  Terminal Shell Interativo (Hero CLI)
 - Simula a inicialização de um ambiente Unix interativo digitando comandos (`ls -p`, `cat status.txt`) com cálculo assíncrono de digitação caractere por caractere.
 - Totalmente acessível: usuários com leitores de tela recebem a síntese direta via `sr-only`, e dispositivos com preferência de movimento reduzido (`prefers-reduced-motion`) ignoram o delay e visualizam o terminal pronto instantaneamente.
 
-### 🔄 Motor de Prateleira Circular Infinita (360° Loop)
+###  Motor de Prateleira Circular Infinita (360° Loop)
 - Implementação matemática proprietária de carrossel de 2 linhas horizontais que gira continuamente em ambos os sentidos.
 - Utiliza **normalização modular invisível**: quando o leitor ultrapassa as extremidades limítrofes da lista clonada (Set 1 ou Set 3), o ponteiro de rolagem `scrollLeft` é recalculado imperceptivelmente sem piscar a tela, criando uma sensação ininterrupta de profundidade.
 - Suporte duplo nativo: rolagem suave via botões de passo, mouse drag contínuo (*grab/grabbing*) e suporte a *touch-swipe* com CSS scroll snap.
 
-### 📖 Mecanismo de Leitura Expansível (`ExpandableText`)
+###  Mecanismo de Leitura Expansível (`ExpandableText`)
 - Tratamento automático de truncamento de texto: conteúdos longos são delimitados por padrão para preservar o alinhamento visual dos cards e da grade de 2 linhas.
 - Detecção dinâmica de overflow via `scrollHeight` + verificação heurística com medição sincronizada com o carregamento de fontes (`document.fonts.ready`).
 - Permite expandir e recolher o conteúdo com um clique ou toque, com parada de propagação de eventos (`stopPropagation`) para não disparar acidentalmente o arraste horizontal do container pai.
 
-### 🧩 Grid Modular Estilo Tetris (Skills & Categorias)
+###  Grid Modular Estilo Tetris (Skills & Categorias)
 - Apresentação visual densa e balanceada dividida em 2 linhas com spans variáveis (`row-span-2`), permitindo que grupos de ferramentas de maior relevância ganhem destaque proporcional sem quebrar o ritmo da interface.
 - Classificação cromática semântica inspirada em sintaxe de temas dark (Ciano para Web, Verde para Segurança, Roxo para Game Dev).
 
-### 🔍 Rastreamento Reativo com `IntersectionObserver`
+###  Rastreamento Reativo com `IntersectionObserver`
 - Observabilidade de rolagem de custo zero para a CPU: a navegação fixa no topo destaca a seção ativa monitorando os pontos de entrada no viewport com margens calibradas (`rootMargin: -40% 0px -55% 0px`), eliminando gargalos de renderização decorrentes de listeners convencionais de `window.onscroll`.
 
 ---
 
-## 🎨 5. Acessibilidade (A11y) & Usabilidade
+##  5. Acessibilidade (A11y) & Usabilidade
 
 - **Navegação Rápida por Teclado:** Implementação de botão acessível "Pular para o conteúdo" (*skip link*) no primeiro nível do DOM.
 - **Gerenciamento de Foco e ARIA:** Uso estrito de `role="tablist"`, `role="tab"`, `role="tabpanel"`, além de propriedades `aria-selected`, `aria-controls` e `aria-expanded`.
@@ -103,7 +103,7 @@ A arquitetura do projeto prioriza manutenibilidade, extensibilidade e tempo de c
 
 ---
 
-## 📁 6. Estrutura de Pastas
+##  6. Estrutura de Pastas
 
 ```
 portfolio/
@@ -148,7 +148,7 @@ portfolio/
 
 ---
 
-## 🌐 7. Acesso Online & Infraestrutura de Produção
+##  7. Acesso Online & Infraestrutura de Produção
 
 A plataforma está disponível publicamente em ambiente de produção de alta disponibilidade:
 
@@ -167,7 +167,7 @@ A plataforma está disponível publicamente em ambiente de produção de alta di
 
 ---
 
-## 📬 8. Contato & Oportunidades
+##  8. Contato & Oportunidades
 
 Estou disponível para posições como **Desenvolvedor Frontend / Full Stack**, com foco em aplicações modernas, código escalável e segurança por design.
 
